@@ -37,7 +37,6 @@ int main() {
 		cout << studentList.at(i).printStudent() << endl;
 	#endif
 
-
 	StudentDataFile.close();
 	return 1;
 }
