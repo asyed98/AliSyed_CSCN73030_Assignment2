@@ -15,6 +15,9 @@ typedef struct STUDENT_DATA {
 	}
 }STUDENTDATA;
 
+
+//#define PRE_RELEASE;
+
 int main() {
 
 	string tempDataStorage;
@@ -31,12 +34,23 @@ int main() {
 
 		studentList.push_back(newStudent);
 	}
+	StudentDataFile.close();
 
 	#ifdef _DEBUG
-	for (int i = 0; i < studentList.size(); i++)
-		cout << studentList.at(i).printStudent() << endl;
+		cout << "DEBUG - Standard Version" << endl;
+		for (int i = 0; i < studentList.size(); i++)
+			cout << studentList.at(i).printStudent() << endl;
 	#endif
 
-	StudentDataFile.close();
+	#ifdef PRE_RELEASE
+		cout << "Pre Release Version" << endl;
+		ifstream StudentDataFile("..\\StudentData_Emails.txt");
+		while (getline(StudentDataFile, tempDataStorage)) 
+		{
+			cout << tempDataStorage << endl;
+		}
+	#endif
+
+	
 	return 1;
 }
