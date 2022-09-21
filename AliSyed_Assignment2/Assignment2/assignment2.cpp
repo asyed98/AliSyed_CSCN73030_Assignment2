@@ -31,9 +31,12 @@ int main() {
 
 		studentList.push_back(newStudent);
 	}
-	
-	//for (int i = 0; i < studentList.size(); i++)
-	//	cout << studentList.at(i).printStudent() << endl;
+
+	#ifdef _DEBUG
+	for (int i = 0; i < studentList.size(); i++)
+		cout << studentList.at(i).printStudent() << endl;
+	#endif
+
 
 	StudentDataFile.close();
 	return 1;
